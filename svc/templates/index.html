@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predictive Maintenance System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #0000FF, #3366FF, #6699FF, #99CCFF, #CCFFFF);
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #1bc841;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predictive Maintenance System</h1>
+        <form method="POST" action="/predict">
+            <label for="Air_temperature_[K]">AIR TEMPERATURE:</label>
+            <input type="text" id="Air_temperature_[K]" name="Air_temperature_[K]"><br><br>
+            
+            <label for="Process_temperature_[K]">PROCESS TEMPERATURE:</label>
+            <input type="text" id="Process_temperature_[K]" name="Process_temperature_[K]"><br><br>
+            
+            <label for="Rotational_speed_[rpm]">ROTATIONAL SPEED:</label>
+            <input type="text" id="Rotational_speed_[rpm]" name="Rotational_speed_[rpm]"><br><br>
+            
+            <label for="Torque_[Nm]">TORQUE:</label>
+            <input type="text" id="Torque_[Nm]" name="Torque_[Nm]"><br><br>
+            
+            <label for="Tool_wear_[min]">TOOL WEAR:</label>
+            <input type="text" id="Tool_wear_[min]" name="Tool_wear_[min]"><br><br>
+            
+            <button type="submit">Generate</button>
+        </form>
+        {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

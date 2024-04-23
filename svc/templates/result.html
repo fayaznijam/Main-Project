@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .result-label {
+            font-weight: bold;
+        }
+        .back-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Result</h2>
+        <div class="result">
+            <p class="result-label">Predicted Class:</p>
+            <p id="prediction"></p>
+        </div>
+        <button onclick="window.history.back()" class="back-btn">Back</button>
+    </div>
+
+    <script>
+        // JavaScript to display prediction on the result page
+        var urlParams = new URLSearchParams(window.location.search);
+        var prediction = urlParams.get('prediction');
+        document.getElementById('prediction').textContent = prediction;
+    </script>
+</body>
+</html>
